@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: hisir-picps
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: hisir-config-server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.host}:9000/eureka/
+  host: 127.0.0.1
+
+
+server:
+  port: 9016

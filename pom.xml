@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.hisir.picps</groupId>
+	<artifactId>hisir_statistics</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>hisir_picps</name>
+	<description>hisir_picps project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.2.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Camden.SR7</spring-cloud.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.appelgriepsch.logback</groupId>
+			<artifactId>logback-gelf-appender</artifactId>
+			<version>1.2.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-stream</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId><exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+    				<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					 <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+				    <groupId>com.fasterxml.jackson.core</groupId>
+   					 <artifactId>jackson-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+			<dependency>
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-core</artifactId>
+<version>2.9.8</version>
+</dependency>
+<dependency>
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-databind</artifactId>
+<version>2.9.8</version>
+</dependency>
+<dependency>
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-annotations</artifactId>
+<version>2.9.8</version>
+</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+    -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.1.11</version>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<imageName>${docker.registry}/${project.name}</imageName>
+					<baseImage>java:8-jre</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+
+					<serverId>${docker.registry.id}</serverId>
+					<registryUrl>${docker.registry.schema}://${docker.registry}</registryUrl>
+
+					<imageTags>
+						<imageTag>${git.commit.id.abbrev}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
+
+					<!-- copy the service's jar file from target into the root directory 
+						of the image -->
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+</project>

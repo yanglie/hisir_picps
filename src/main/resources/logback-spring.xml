@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Base logback configuration provided for compatibility with Spring Boot 1.1
+-->
+<configuration>
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	
+	<springProperty scope="context" name="springAppName" source="spring.application.name"/>
+	<springProperty scope="context" name="graylogHost" source="graylog.host" />
+	<springProperty scope="context" name="graylogPort" source="graylog.port" />
+	<springProperty scope="context" name="activeProfile" source="spring.profiles.active" />
+	
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		
+		<file>/logs/${springAppName}/error.log</file>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_FILE}.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>10MB</MaxFileSize>
+		</triggeringPolicy>
+		
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter"> 
+            <level>error</level>
+        </filter>
+	</appender>
+	
+	<appender name="FILE-INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		
+		<file>/logs/${springAppName}/info.log</file>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_FILE}.%i</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>10MB</MaxFileSize>
+		</triggeringPolicy>
+		
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter"> 
+            <level>info</level>
+        </filter>
+	</appender>
+	
+	<appender name="GELF" class="de.appelgriepsch.logback.GelfAppender">
+        <server>${graylogHost}</server>
+        <port>${graylogPort}</port>
+        <protocol>UDP</protocol>
+        <additionalFields>profile=${activeProfile},app=${springAppName}</additionalFields>
+    </appender>
+	
+	<root level="INFO">
+	
+		<appender-ref ref="CONSOLE" />
+	<!-- 
+		<appender-ref ref="FILE" />
+		<appender-ref ref="FILE-INFO" />
+	 -->
+		<appender-ref ref="GELF" />
+	</root>
+
+</configuration>
