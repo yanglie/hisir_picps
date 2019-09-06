@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.hisir.picps</groupId>
-	<artifactId>hisir_statistics</artifactId>
+	<artifactId>hisir_picps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
